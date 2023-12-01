@@ -16,7 +16,9 @@ char	*ft_strrchr(const char *s, int c)
 {
 	char	*ss;
 	char	ch;
+	char	*start;
 
+	start = (char *)s;
 	ch = (char)c;
 	ss = (char *)s;
 	while (*ss != '\0')
@@ -25,7 +27,7 @@ char	*ft_strrchr(const char *s, int c)
 	{
 		if (*ss == ch)
 			return (ss);
-		if (ss == s - 1)
+		if (ss == start)
 			return (NULL);
 		ss--;
 	}
