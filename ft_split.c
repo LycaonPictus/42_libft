@@ -10,100 +10,75 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stdio.h>
+#include "libft.h"
 
-int	count_words(char const *str, char c)
+unsigned int	count_words(char const *str, char c)
 {
-	int	count;
-	int	new_word;
+	unsigned int	count;
+	int				new_word;
 
-	new_word = *str++ != c;
-	count = 0;
+	if (!*str)
+		return (0);
+	new_word = *(str++) != c;
+	count = new_word;
 	while (*str)
 	{
-		if (new_word && *str != c)
+		if (new_word && *str == c)
 			new_word = 0;
-		else if (!new_word && *str == c)
+		else if (!new_word && *str != c)
 		{
 			new_word = 1;
 			count++;
 		}
 		str++;
 	}
-	printf("El num de palabras es: %i", count);
 	return (count);
 }
 
-int	add_str(char ***list, size_t *nelem, char *str)
+/* void	free_list(char **list)
 {
-	size_t	i;
-	char	**newlist;
-
-	if (!str || !ft_memcmp(str, "", 1))
-		return (1);
-	newlist = malloc(sizeof(char *) * (*nelem + 2));
-	if (!newlist)
-		return (0);
-	i = 0;
-	while (i < *nelem)
-	{
-		newlist[i] = (*list)[i];
-		i++;
-	}
-	newlist[i++] = str;
-	(*nelem)++;
-	newlist[i] = NULL;
-	free(*list);
-	*list = newlist;
-	return (1);
-}
-
-char	*clean_str(char *str, char c)
-{
-	char	*trim;
-	char	*sepstr;
-
-	sepstr = malloc(2);
-	sepstr[0] = c;
-	sepstr[1] = '\0';
-	trim = ft_strtrim(str, sepstr);
-	free(str);
-	free(sepstr);
-	return (trim);
-}
+	while (*list != NULL)
+		free(*(list++));
+} */
 
 char	**ft_split(char const *s, char c)
 {
-	char	**list;
-	size_t	i;
-	size_t	j;
-	size_t	nelem;
+	char			**list;
+	size_t			i;
+	size_t			j;
+	char			*tmp;
+	unsigned int	list_index;
 
-	list = malloc(sizeof(char *));
-	list[0] = NULL;
-	nelem = 0;
+	list = malloc((count_words(s, c) + 1) * sizeof(char *));
+	if (!list)
+		return (NULL);
 	i = 0;
+	list_index = 0;
 	while (s[i])
 	{
+		while (s[i] == c)
+			i++;
 		j = i;
-		while (s[j] == c)
-			j++;
 		while (s[j] && s[j] != c)
 			j++;
-		if(!add_str(&list, &nelem, clean_str(ft_substr(s, i, j - i), c)))
-		{
-			return (NULL);
-		}
-		if (!s[j])
-			return (list);
-		i = j + 1;
+		tmp = ft_substr(s, i, j - i);
+		if (ft_strlen(tmp))
+			list[list_index++] = tmp;
+		else
+			free(tmp);
+		i = j;
 	}
+	list[list_index] = NULL;
 	return (list);
 }
 
+/* 
 int main(void)
 {
-	char aa[1000] = "Lorem ipsum dolor sit amet";
-	count_words(aa, ' ');
-}
+	char aa[1000] = "";
+	printf("El num palabra es: %u\n", count_words(aa, 'a'));
+	char **lista = ft_split(aa, 'a');
+	while (*lista != NULL)
+		printf("%s\n",*(lista++));
+} */
