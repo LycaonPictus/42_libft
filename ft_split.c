@@ -36,11 +36,13 @@ unsigned int	count_words(char const *str, char c)
 	return (count);
 }
 
-/* void	free_list(char **list)
+void	add_to_list(char ***list, char *str, unsigned int *size)
 {
-	while (*list != NULL)
-		free(*(list++));
-} */
+	if (ft_strlen(str))
+		(*list)[(*size)++] = str;
+	else
+		free(str);
+}
 
 char	**ft_split(char const *s, char c)
 {
@@ -63,10 +65,7 @@ char	**ft_split(char const *s, char c)
 		while (s[j] && s[j] != c)
 			j++;
 		tmp = ft_substr(s, i, j - i);
-		if (ft_strlen(tmp))
-			list[list_index++] = tmp;
-		else
-			free(tmp);
+		add_to_list(&list, tmp, &list_index);
 		i = j;
 	}
 	list[list_index] = NULL;
