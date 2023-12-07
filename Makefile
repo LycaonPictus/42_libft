@@ -32,6 +32,4 @@ fclean:
 	@$(CLEAN) ./*.a
 
 re: fclean all
-.PHONY: all clean fclean re seccpy bonus
-copia:
-	@cp ./*.* ../copia
+.PHONY: all clean fclean re bonus
