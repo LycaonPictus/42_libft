@@ -6,7 +6,7 @@
 /*   By: jholland <jholland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 20:22:34 by jholland          #+#    #+#             */
-/*   Updated: 2023/12/05 13:07:37 by jholland         ###   ########.fr       */
+/*   Updated: 2023/12/07 19:47:00 by jholland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,3 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	}
 	return (dst);
 }
-
-/* #include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-int	main(int argc, char **argv)
-{
-	if (argc == 4)
-	{
-		char* a = argv[1];
-		char* b = argv[2];
-		int	n = atoi(argv[3]);
-
-		memcpy(a, b, n);
-		//ft_memcpy(a, b, n);
-		printf("%s", a);
-	}
-} */

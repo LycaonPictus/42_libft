@@ -6,7 +6,7 @@
 /*   By: jholland <jholland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 20:09:40 by jholland          #+#    #+#             */
-/*   Updated: 2023/12/05 13:08:08 by jholland         ###   ########.fr       */
+/*   Updated: 2023/12/07 19:46:08 by jholland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,3 @@ char	*ft_strrchr(const char *s, int c)
 		ss--;
 	}
 }
-
-/* #include <stdio.h>
-int main(void)
-{
-	char str[] = "Hola patata!";
-	printf("%s", ft_strrchr(str,'a'));
-} */

@@ -6,7 +6,7 @@
 /*   By: jholland <jholland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 22:54:11 by jholland          #+#    #+#             */
-/*   Updated: 2023/12/05 13:08:06 by jholland         ###   ########.fr       */
+/*   Updated: 2023/12/07 19:46:13 by jholland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,3 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	}
 	return (NULL);
 }
-
-/* #include <stdio.h>
-#include <string.h>
-int main(void)
-{
-	char a[] = "Hola patata";
-	char b[] = "ata";
-	int n = 8;
-	printf("%s\n", strnstr(a, b, n));
-	printf("%s\n", ft_strnstr(a, b, n));
-} */

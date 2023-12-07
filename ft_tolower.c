@@ -6,7 +6,7 @@
 /*   By: jholland <jholland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 19:02:27 by jholland          #+#    #+#             */
-/*   Updated: 2023/12/05 13:08:16 by jholland         ###   ########.fr       */
+/*   Updated: 2023/12/07 19:45:58 by jholland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,3 @@ int	ft_tolower(int c)
 		return (c + 32);
 	return (c);
 }
-
-/* int main(void)
-{
-	int i = -3000;
-	while (i < 3000)
-	{
-		if(tolower(i) != ft_tolower(i))
-		printf("%i", i);
-	i++;}
-} */

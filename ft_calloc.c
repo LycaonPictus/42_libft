@@ -6,7 +6,7 @@
 /*   By: jholland <jholland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 21:59:43 by jholland          #+#    #+#             */
-/*   Updated: 2023/12/05 13:07:12 by jholland         ###   ########.fr       */
+/*   Updated: 2023/12/07 19:47:35 by jholland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,3 @@ void	*ft_calloc(size_t count, size_t size)
 		out[--total_size] = 0;
 	return ((void *)out);
 }
-
-/* int main(void)
-{
-	void* a = ft_calloc(30, 4);
-	a++;
-} */

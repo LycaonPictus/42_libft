@@ -6,7 +6,7 @@
 /*   By: jholland <jholland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 18:44:30 by jholland          #+#    #+#             */
-/*   Updated: 2023/12/05 13:07:45 by jholland         ###   ########.fr       */
+/*   Updated: 2023/12/07 19:46:46 by jholland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,36 @@ unsigned int	count_words(char const *str, char c)
 	return (count);
 }
 
-void	add_to_list(char ***list, char *str, unsigned int *size)
+int	add_word_found(char **list, const char *str, unsigned int *size, char c)
 {
-	if (ft_strlen(str))
-		(*list)[(*size)++] = str;
+	int		j;
+	char	*tmp;
+
+	j = 0;
+	while (str[j] && str[j] != c)
+		j++;
+	tmp = ft_substr(str, 0, j);
+	if (!tmp)
+		return (-1);
+	if (ft_strlen(tmp))
+		list[(*size)++] = tmp;
 	else
-		free(str);
+		free(tmp);
+	return (j);
+}
+
+void	destroy_list(char **list, unsigned int list_index)
+{
+	while (list_index)
+		free(list[--list_index]);
+	free(list);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char			**list;
 	size_t			i;
-	size_t			j;
-	char			*tmp;
+	int				j;
 	unsigned int	list_index;
 
 	list = malloc((count_words(s, c) + 1) * sizeof(char *));
@@ -60,23 +76,14 @@ char	**ft_split(char const *s, char c)
 	{
 		while (s[i] == c)
 			i++;
-		j = i;
-		while (s[j] && s[j] != c)
-			j++;
-		tmp = ft_substr(s, i, j - i);
-		add_to_list(&list, tmp, &list_index);
-		i = j;
+		j = add_word_found(list, &s[i], &list_index, c);
+		if (j == -1)
+		{
+			destroy_list(list, list_index);
+			return (NULL);
+		}
+		i += j;
 	}
 	list[list_index] = NULL;
 	return (list);
 }
-
-/* 
-int main(void)
-{
-	char aa[1000] = "";
-	printf("El num palabra es: %u\n", count_words(aa, 'a'));
-	char **lista = ft_split(aa, 'a');
-	while (*lista != NULL)
-		printf("%s\n",*(lista++));
-} */

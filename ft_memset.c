@@ -6,7 +6,7 @@
 /*   By: jholland <jholland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 19:35:51 by jholland          #+#    #+#             */
-/*   Updated: 2023/12/05 13:07:42 by jholland         ###   ########.fr       */
+/*   Updated: 2023/12/07 19:46:55 by jholland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,3 @@ void	*ft_memset(void *b, int c, size_t len)
 		ptr[len-- - 1] = c;
 	return (ptr);
 }
-
-/* int main(int argc, char** argv)
-{
-    if (argc == 3)
-    {
-        char a[] = "HOLA QUE ASE";
-		char b[] = "HOLA QUE ASE";
-        printf("%s\n", memset(a, atoi(argv[1]), atoi(argv[2])));
-        printf("%s\n", ft_memset(b, atoi(argv[1]), atoi(argv[2])));
-    }
-} */

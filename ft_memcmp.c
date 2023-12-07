@@ -6,7 +6,7 @@
 /*   By: jholland <jholland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 20:41:07 by jholland          #+#    #+#             */
-/*   Updated: 2023/12/05 13:07:34 by jholland         ###   ########.fr       */
+/*   Updated: 2023/12/07 19:48:06 by jholland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,3 @@ int	ft_memcmp(const char *s1, const char *s2, size_t n)
 	}
 	return (diff);
 }
-
-/* #include <stdio.h>
-int main(void)
-{
-	printf("%i", ft_memcmp("HOLA","HOLA",5));
-} */
