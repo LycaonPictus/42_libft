@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jholland <jholland@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jholland <jholland@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 20:12:12 by jholland          #+#    #+#             */
-/*   Updated: 2023/12/05 21:05:17 by jholland         ###   ########.fr       */
+/*   Created: 2023/12/06 15:19:30 by jholland          #+#    #+#             */
+/*   Updated: 2025/08/27 16:28:28 by jholland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	(*new).next = *lst;
-	*lst = new;
+	while (lst)
+	{
+		f((*lst).content);
+		lst = (*lst).next;
+	}
 }

@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jholland <jholland@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jholland <jholland@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/06 15:19:30 by jholland          #+#    #+#             */
-/*   Updated: 2023/12/06 15:29:36 by jholland         ###   ########.fr       */
+/*   Created: 2023/12/05 21:14:31 by jholland          #+#    #+#             */
+/*   Updated: 2025/08/27 16:28:28 by jholland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+int	ft_lstsize(t_list *lst)
 {
-	while (lst)
+	int	count;
+
+	if (!lst)
+		return (0);
+	count = 1;
+	while ((*lst).next)
 	{
-		f((*lst).content);
 		lst = (*lst).next;
+		count++;
 	}
+	return (count);
 }
